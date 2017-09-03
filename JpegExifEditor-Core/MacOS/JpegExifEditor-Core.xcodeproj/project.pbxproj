@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B13FA561F5ABA8F00D62492 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B13FA541F5ABA8F00D62492 /* test.cpp */; };
-		5B13FA591F5ABAC300D62492 /* test.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B13FA581F5ABAC300D62492 /* test.h */; };
+		5B61B7821F5C185F00C7B65B /* JpegParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61B7811F5C185F00C7B65B /* JpegParser.h */; };
+		5B61B7841F5C186900C7B65B /* JpegParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B61B7831F5C186900C7B65B /* JpegParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B13FA541F5ABA8F00D62492 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test.cpp; path = ../source/test.cpp; sourceTree = "<group>"; };
-		5B13FA581F5ABAC300D62492 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../header/test.h; sourceTree = "<group>"; };
+		5B61B7811F5C185F00C7B65B /* JpegParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JpegParser.h; path = ../header/JpegParser.h; sourceTree = "<group>"; };
+		5B61B7831F5C186900C7B65B /* JpegParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JpegParser.cpp; path = ../source/JpegParser.cpp; sourceTree = "<group>"; };
 		5BAB49561F5AB96B00CC6AAB /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libJpegExifEditor-Core.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -31,7 +31,7 @@
 		5B13FA521F5ABA0300D62492 /* header */ = {
 			isa = PBXGroup;
 			children = (
-				5B13FA581F5ABAC300D62492 /* test.h */,
+				5B61B7811F5C185F00C7B65B /* JpegParser.h */,
 			);
 			name = header;
 			sourceTree = "<group>";
@@ -39,7 +39,7 @@
 		5B13FA531F5ABA1B00D62492 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				5B13FA541F5ABA8F00D62492 /* test.cpp */,
+				5B61B7831F5C186900C7B65B /* JpegParser.cpp */,
 			);
 			name = source;
 			sourceTree = "<group>";
@@ -68,7 +68,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B13FA591F5ABAC300D62492 /* test.h in Headers */,
+				5B61B7821F5C185F00C7B65B /* JpegParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B13FA561F5ABA8F00D62492 /* test.cpp in Sources */,
+				5B61B7841F5C186900C7B65B /* JpegParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
