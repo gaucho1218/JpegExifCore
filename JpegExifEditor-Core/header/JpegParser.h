@@ -9,6 +9,8 @@
 #ifndef JPEG_PARSER_H
 #define JPEG_PARSER_H
 
+//! attribute and offset tuple
 
+//! parse jpeg data and return its attributes and offset
 
 #endif
