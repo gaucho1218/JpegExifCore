@@ -9,8 +9,24 @@
 #ifndef JPEG_PARSER_H
 #define JPEG_PARSER_H
 
-//! attribute and offset tuple
+#include <tuple>
 
-//! parse jpeg data and return its attributes and offset
+typedef enum EJpegHdrType
+{
+	EJPEG_NONE = 0,
+	EJPEG_SOI,		//! FFD8
+	EJPEG_APP,		//! FFE0 ~ FFEF
+	EJPEG_DQT,		//! FFDB
+	EJPEG_SOF,		//! FFC0 ~ FFC2
+	EJPEG_DHT,		//! FFC4
+	EJPEG_SOS,		//! FFDA
+	EJPEG_EOI		//! FFD9
+};
+
+//! attribute, offset
+typedef std::tuple<EJpegHdrType, int> TJpegInfo;
+
+//! parse jpeg data and return its attributes and offset when it founds something for it
+TJpegInfo ParseJpegData(char *pBuf, int nSize);
 
 #endif
