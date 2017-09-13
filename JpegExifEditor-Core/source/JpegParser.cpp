@@ -8,7 +8,7 @@
 
 #include "JpegParser.h"
 
-TJpegInfo ParseJpegData(char *pBuf, int nSize)
+TJpegInfo ParseJpegData(const char *const pBuf, const int nSize)
 {
     TJpegInfo tRet = std::make_tuple(EJpegHdrType::EJPEG_NONE, 0);
 
