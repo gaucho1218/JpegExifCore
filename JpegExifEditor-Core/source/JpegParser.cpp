@@ -10,7 +10,7 @@
 
 TJpegInfo ParseJpegData(char *pBuf, int nSize)
 {
-	TJpegInfo tRet = std::make_tuple(EJPEG_NONE, 0);
+    TJpegInfo tRet = std::make_tuple(EJpegHdrType::EJPEG_NONE, 0);
 
 
 

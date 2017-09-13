@@ -11,7 +11,7 @@
 
 #include <tuple>
 
-typedef enum EJpegHdrType
+enum class EJpegHdrType
 {
 	EJPEG_NONE = 0,
 	EJPEG_SOI,		//! FFD8
@@ -24,7 +24,7 @@ typedef enum EJpegHdrType
 };
 
 //! attribute, offset
-typedef std::tuple<EJpegHdrType, int> TJpegInfo;
+using TJpegInfo = std::tuple<EJpegHdrType, int>;
 
 //! parse jpeg data and return its attributes and offset when it founds something for it
 TJpegInfo ParseJpegData(char *pBuf, int nSize);
