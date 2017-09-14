@@ -11,7 +11,7 @@
 
 #include <tuple>
 
-enum class EJpegHdrType
+enum EJpegHdrType
 {
 	EJPEG_NONE = 0,
 #ifdef __LITTLE_ENDIAN__
@@ -33,10 +33,18 @@ enum class EJpegHdrType
 #endif
 };
 
-//! attribute, offset
-using TJpegInfo = std::tuple<EJpegHdrType, int>;
+//! enum for easy to get data from tuple
+enum EJpegInfo
+{
+    EJI_HDR = 0,
+    EJI_OFFSET,
+    EJI_SIZE
+};
+//! attribute, offset, size
+using TJpegInfo = std::tuple<EJpegHdrType, int, short>;
 
-//! parse jpeg data and return its attributes and offset when it founds something for it
-TJpegInfo ParseJpegData(const char *const pBuf, const int nSize);
+//! parse jpeg data and return its attributes, offset, size
+//! check TJpegInfo's size part if header type has additional size
+TJpegInfo ParseJpegData(const char *pBuf, const int nSize);
 
 #endif
