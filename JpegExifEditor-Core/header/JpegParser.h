@@ -9,8 +9,42 @@
 #ifndef JPEG_PARSER_H
 #define JPEG_PARSER_H
 
-//! attribute and offset tuple
+#include <tuple>
 
-//! parse jpeg data and return its attributes and offset
+enum EJpegHdrType
+{
+	EJPEG_NONE = 0,
+#ifdef __LITTLE_ENDIAN__
+	EJPEG_SOI = 0xD8FF,		//! FFD8
+	EJPEG_APP = 0xE0FF,		//! FFE0 ~ FFEF
+	EJPEG_DQT = 0xDBFF,		//! FFDB
+	EJPEG_SOF = 0xC0FF,		//! FFC0 ~ FFC2
+	EJPEG_DHT = 0xC4FF,		//! FFC4
+	EJPEG_SOS = 0xDAFF,		//! FFDA
+	EJPEG_EOI = 0xD9FF		//! FFD9
+#else
+    EJPEG_SOI = 0xFFD8,		//! FFD8
+    EJPEG_APP = 0xFFE0,		//! FFE0 ~ FFEF
+    EJPEG_DQT = 0xFFDB,		//! FFDB
+    EJPEG_SOF = 0xFFC0,		//! FFC0 ~ FFC2
+    EJPEG_DHT = 0xFFC4,		//! FFC4
+    EJPEG_SOS = 0xFFDA,		//! FFDA
+    EJPEG_EOI = 0xFFD9		//! FFD9
+#endif
+};
+
+//! enum for easy to get data from tuple
+enum EJpegInfo
+{
+    EJI_HDR = 0,
+    EJI_OFFSET,
+    EJI_SIZE
+};
+//! attribute, offset, size
+using TJpegInfo = std::tuple<EJpegHdrType, int, short>;
+
+//! parse jpeg data and return its attributes, offset, size
+//! check TJpegInfo's size part if header type has additional size
+TJpegInfo ParseJpegData(const char *pBuf, const int nSize);
 
 #endif
