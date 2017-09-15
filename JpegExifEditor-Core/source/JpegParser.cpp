@@ -22,49 +22,28 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize)
     
     while( true )
     {
-        if( *pHdr & EJPEG_SOI )
+        if( (*pHdr & EJPEG_SOI) || (*pHdr & EJPEG_EOI) )
         {
-            //! Start of Image
-            //! It must locate start of JPEG
-            //! Nothing is related with this
-            
-            tRet = std::make_tuple(EJPEG_SOI, nOffset * 2, 0);
+            tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nOffset * 2, 0);
             break;
         }
-        else if( *pHdr & EJPEG_APP )
+        else if( (*pHdr & EJPEG_APP) ||
+                (*pHdr & EJPEG_DQT) ||
+                (*pHdr & EJPEG_SOF) ||
+                (*pHdr & EJPEG_DHT) ||
+                (*pHdr & EJPEG_SOS))
         {
-            //! App
             //! has 2 byte size
-            short nAppSize{0};
+            short nDataSize{0};
             
-            //! check buffer has enough to get app size
+            //! check buffer has enough to get size
             if( (char *)pHdr + 2 <= pBuf + nSize )
             {
-                nAppSize = *(pHdr + 1);
+                nDataSize = *(pHdr + 1);
             }
             
-            tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nOffset * 2, nAppSize);
+            tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nOffset * 2, nDataSize);
             break;
-        }
-        else if( *pHdr & EJPEG_DQT )
-        {
-            //! Define Quantization Table
-        }
-        else if( *pHdr & EJPEG_SOF )
-        {
-            //! Start of Frame
-        }
-        else if( *pHdr & EJPEG_DHT )
-        {
-            //! Define Huffman Table
-        }
-        else if( *pHdr & EJPEG_SOS )
-        {
-            //! Start of Scan
-        }
-        else if( *pHdr & EJPEG_EOI )
-        {
-            //! End of Image
         }
         
         ++pHdr;
