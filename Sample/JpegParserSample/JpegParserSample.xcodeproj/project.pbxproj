@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BAE2D301F6EBC18001A6085 /* libJpegExifEditor-Core.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BAE2D2F1F6EBC18001A6085 /* libJpegExifEditor-Core.dylib */; };
+		5BAE2D311F6EBC8B001A6085 /* libJpegExifEditor-Core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BAE2D2F1F6EBC18001A6085 /* libJpegExifEditor-Core.dylib */; };
 		5BBC811C1F6E5084008B1827 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBC811B1F6E5084008B1827 /* main.cpp */; };
-		5BBC81271F6E5CD1008B1827 /* libJpegExifEditor-Core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBC81251F6E5751008B1827 /* libJpegExifEditor-Core.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5BBC81161F6E5084008B1827 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				5BAE2D301F6EBC18001A6085 /* libJpegExifEditor-Core.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5BAE2D2D1F6EBBBD001A6085 /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libJpegExifEditor-Core.dylib"; path = "../../JpegExifEditor-Core/lib/libJpegExifEditor-Core.dylib"; sourceTree = "<group>"; };
+		5BAE2D2F1F6EBC18001A6085 /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libJpegExifEditor-Core.dylib"; path = "../../JpegExifEditor-Core/lib/libJpegExifEditor-Core.dylib"; sourceTree = "<group>"; };
 		5BBC81181F6E5084008B1827 /* JpegParserSample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JpegParserSample; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBC811B1F6E5084008B1827 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = main.cpp; sourceTree = "<group>"; };
 		5BBC81251F6E5751008B1827 /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libJpegExifEditor-Core.dylib"; path = "../../JpegExifEditor-Core/lib/libJpegExifEditor-Core.dylib"; sourceTree = "<group>"; };
@@ -34,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BBC81271F6E5CD1008B1827 /* libJpegExifEditor-Core.dylib in Frameworks */,
+				5BAE2D311F6EBC8B001A6085 /* libJpegExifEditor-Core.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +48,8 @@
 		5BBC810F1F6E5084008B1827 = {
 			isa = PBXGroup;
 			children = (
+				5BAE2D2F1F6EBC18001A6085 /* libJpegExifEditor-Core.dylib */,
+				5BAE2D2D1F6EBBBD001A6085 /* libJpegExifEditor-Core.dylib */,
 				5BBC811A1F6E5084008B1827 /* JpegParserSample */,
 				5BBC81191F6E5084008B1827 /* Products */,
 				5BBC81241F6E5751008B1827 /* Frameworks */,
@@ -232,7 +238,7 @@
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				HEADER_SEARCH_PATHS = "../../JpegExifEditor-Core/header";
-				LD_RUNPATH_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
+				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
 				"OTHER_CFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -245,7 +251,7 @@
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				HEADER_SEARCH_PATHS = "../../JpegExifEditor-Core/header";
-				LD_RUNPATH_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
+				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYMROOT = build;
