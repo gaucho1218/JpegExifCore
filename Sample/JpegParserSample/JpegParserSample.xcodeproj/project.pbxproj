@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5BBC811C1F6E5084008B1827 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBC811B1F6E5084008B1827 /* main.cpp */; };
+		5BBC81261F6E5751008B1827 /* libJpegExifEditor-Core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBC81251F6E5751008B1827 /* libJpegExifEditor-Core.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		5BBC81181F6E5084008B1827 /* JpegParserSample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JpegParserSample; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBC811B1F6E5084008B1827 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5BBC81251F6E5751008B1827 /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libJpegExifEditor-Core.dylib"; path = "../../JpegExifEditor-Core/lib/libJpegExifEditor-Core.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BBC81261F6E5751008B1827 /* libJpegExifEditor-Core.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +46,7 @@
 			children = (
 				5BBC811A1F6E5084008B1827 /* JpegParserSample */,
 				5BBC81191F6E5084008B1827 /* Products */,
+				5BBC81241F6E5751008B1827 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +64,14 @@
 				5BBC811B1F6E5084008B1827 /* main.cpp */,
 			);
 			path = JpegParserSample;
+			sourceTree = "<group>";
+		};
+		5BBC81241F6E5751008B1827 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BBC81251F6E5751008B1827 /* libJpegExifEditor-Core.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,14 +230,21 @@
 		5BBC81201F6E5084008B1827 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "../../JpegExifEditor-Core/header";
+				LIBRARY_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
+				"OTHER_CFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = build;
 			};
 			name = Debug;
 		};
 		5BBC81211F6E5084008B1827 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "../../JpegExifEditor-Core/header";
+				LIBRARY_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = build;
 			};
 			name = Release;
 		};
