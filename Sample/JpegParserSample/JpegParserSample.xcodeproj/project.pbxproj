@@ -230,8 +230,9 @@
 		5BBC81201F6E5084008B1827 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				HEADER_SEARCH_PATHS = "../../JpegExifEditor-Core/header";
-				LD_RUNPATH_SEARCH_PATHS = "../../../../../JpegExifEditor-Core/lib";
+				LD_RUNPATH_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
 				LIBRARY_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
 				"OTHER_CFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -242,8 +243,9 @@
 		5BBC81211F6E5084008B1827 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				HEADER_SEARCH_PATHS = "../../JpegExifEditor-Core/header";
-				LD_RUNPATH_SEARCH_PATHS = "../../../../../JpegExifEditor-Core/lib";
+				LD_RUNPATH_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
 				LIBRARY_SEARCH_PATHS = "../../JpegExifEditor-Core/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SYMROOT = build;
@@ -269,6 +271,7 @@
 				5BBC81211F6E5084008B1827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
