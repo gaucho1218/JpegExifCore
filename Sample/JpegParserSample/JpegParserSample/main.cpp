@@ -12,7 +12,8 @@
 
 int main(int argc, const char * argv[]) {
     
-    
+    auto temp = ParseJpegData(nullptr, 0);
+    std::get<EJI_HDR>(temp);
     
     return 0;
 }
