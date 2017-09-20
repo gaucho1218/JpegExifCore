@@ -21,6 +21,7 @@ int main(int argc, const char * argv[]) {
     auto nSize = 1024;
     auto nSkipSize = 0;
     auto nCurOffset{0};
+    auto nReadSize{0};
     auto pBufStart = malloc(nSize);
     if( pBufStart == nullptr )
     {
@@ -34,11 +35,13 @@ int main(int argc, const char * argv[]) {
     
     while(!bEOI)
     {
-        auto nReadSize = fread(pBufStart, 1, nSize, pFile);
+        printf("Current nReadSize: %d\n", nReadSize);
+        nReadSize = fread((char *)(pBufStart) + nReadSize, 1, nSize - nReadSize, pFile);
         pCurBuf = reinterpret_cast<char *>(pBufStart);
         
         if( nSkipSize >= nSize )
         {
+            nReadSize -= nSize;
             nSkipSize -= nSize;
             nCurOffset += nSize;
             continue;
@@ -47,6 +50,7 @@ int main(int argc, const char * argv[]) {
         {
             nReadSize -= nSkipSize;
             pCurBuf += nSkipSize;
+            nCurOffset += nSkipSize;
             nSkipSize = 0;
         }
 
@@ -62,15 +66,16 @@ int main(int argc, const char * argv[]) {
                 pCurBuf += 2;
                 nReadSize -= 2;
                 nCurOffset += 2;
-                break;
+                continue;
             }
             else if( std::get<EJI_HDR>(outTuple) == EJPEG_SOS )
             {
+                printf("Found SOS\n");
                 bSOS = true;
                 pCurBuf += 2;
                 nReadSize -= 2;
                 nCurOffset += 2;
-                break;
+                continue;
             }
             
             if( std::get<EJI_HDR>(outTuple) != EJPEG_NONE )
