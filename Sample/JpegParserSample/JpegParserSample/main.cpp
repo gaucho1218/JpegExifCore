@@ -30,6 +30,7 @@ int main(int argc, const char * argv[]) {
     
     char *pCurBuf = reinterpret_cast<char *>(pBufStart);
     auto bEOI{false};
+    auto bSOS{false};
     
     while(!bEOI)
     {
@@ -52,6 +53,25 @@ int main(int argc, const char * argv[]) {
         while(bEOI == false)
         {
             auto outTuple = ParseJpegData(pCurBuf, static_cast<int>(nReadSize), static_cast<int>(nCurOffset));
+            
+            if( bSOS == true && std::get<EJI_HDR>(outTuple) != EJPEG_EOI )
+            {
+                if( nReadSize <= 1 )
+                    break;
+                
+                pCurBuf += 2;
+                nReadSize -= 2;
+                nCurOffset += 2;
+                break;
+            }
+            else if( std::get<EJI_HDR>(outTuple) == EJPEG_SOS )
+            {
+                bSOS = true;
+                pCurBuf += 2;
+                nReadSize -= 2;
+                nCurOffset += 2;
+                break;
+            }
             
             if( std::get<EJI_HDR>(outTuple) != EJPEG_NONE )
             {
