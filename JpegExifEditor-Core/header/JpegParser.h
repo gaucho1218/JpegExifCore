@@ -49,6 +49,6 @@ using TJpegInfo = std::tuple<EJpegHdrType, int, short>;
 
 //! parse jpeg data and return its attributes, offset, size
 //! check TJpegInfo's size part if header type has additional size
-TJpegInfo ParseJpegData(const char *pBuf, const int nSize);
+TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) noexcept;
 
 #endif
