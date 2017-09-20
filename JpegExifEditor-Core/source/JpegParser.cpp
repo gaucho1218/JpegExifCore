@@ -17,21 +17,21 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize)
 
     
     //! need effective way to parse JPEG header
-    const short *pHdr = reinterpret_cast<short *>(const_cast<char *>(pBuf));
+    const unsigned short *pHdr = reinterpret_cast<unsigned short *>(const_cast<char *>(pBuf));
     int nOffset{0};
     
     while( true )
     {
-        if( (*pHdr & EJPEG_SOI) || (*pHdr & EJPEG_EOI) )
+        if( (*pHdr == EJPEG_SOI) || (*pHdr == EJPEG_EOI) )
         {
             tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nOffset * 2, 0);
             break;
         }
-        else if( (*pHdr & EJPEG_APP) ||
-                (*pHdr & EJPEG_DQT) ||
-                (*pHdr & EJPEG_SOF) ||
-                (*pHdr & EJPEG_DHT) ||
-                (*pHdr & EJPEG_SOS))
+        else if( (*pHdr >= EJPEG_APP && *pHdr <= EJPEG_APPMAX) ||
+                (*pHdr == EJPEG_DQT) ||
+                (*pHdr >= EJPEG_SOF && *pHdr <= EJPEG_SOFMAX) ||
+                (*pHdr == EJPEG_DHT) ||
+                (*pHdr == EJPEG_SOS))
         {
             //! has 2 byte size
             short nDataSize{0};
