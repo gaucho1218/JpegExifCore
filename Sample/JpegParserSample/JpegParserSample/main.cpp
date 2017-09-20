@@ -19,6 +19,7 @@ int main(int argc, const char * argv[]) {
     }
     
     auto nSize = 1024;
+    auto nSkipSize = 0;
     auto pBufStart = malloc(nSize);
     if( pBufStart == nullptr )
     {
@@ -32,6 +33,9 @@ int main(int argc, const char * argv[]) {
     while(!bEOI)
     {
         auto nReadSize = fread(pBufStart, 1, nSize, pFile);
+        
+        if( nSkipSize >= nSize )
+            continue;
         
         while(bEOI == false)
         {
@@ -57,6 +61,7 @@ int main(int argc, const char * argv[]) {
                 else if( std::get<EJI_SIZE>(outTuple) > (nReadSize +2) )
                 {
                     //! need to read more data from file
+                    nSkipSize = std::get<EJI_SIZE>(outTuple) - static_cast<int>(nReadSize);
                     pCurBuf += nReadSize;
                     nReadSize = 0;
                     break;
