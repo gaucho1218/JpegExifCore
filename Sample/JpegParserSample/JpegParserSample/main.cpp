@@ -20,6 +20,7 @@ int main(int argc, const char * argv[]) {
     
     auto nSize = 1024;
     auto nSkipSize = 0;
+    auto nCurOffset{0};
     auto pBufStart = malloc(nSize);
     if( pBufStart == nullptr )
     {
@@ -33,13 +34,24 @@ int main(int argc, const char * argv[]) {
     while(!bEOI)
     {
         auto nReadSize = fread(pBufStart, 1, nSize, pFile);
+        pCurBuf = reinterpret_cast<char *>(pBufStart);
         
         if( nSkipSize >= nSize )
+        {
+            nSkipSize -= nSize;
+            nCurOffset += nSize;
             continue;
-        
+        }
+        else if( nSkipSize > 0 )
+        {
+            nReadSize -= nSkipSize;
+            pCurBuf += nSkipSize;
+            nSkipSize = 0;
+        }
+
         while(bEOI == false)
         {
-            auto outTuple = ParseJpegData(pCurBuf, static_cast<int>(nReadSize));
+            auto outTuple = ParseJpegData(pCurBuf, static_cast<int>(nReadSize), static_cast<int>(nCurOffset));
             
             if( std::get<EJI_HDR>(outTuple) != EJPEG_NONE )
             {
@@ -57,12 +69,13 @@ int main(int argc, const char * argv[]) {
                 {
                     pCurBuf += 2;
                     nReadSize -= 2;
+                    nCurOffset += 2;
                 }
                 else if( std::get<EJI_SIZE>(outTuple) > (nReadSize +2) )
                 {
                     //! need to read more data from file
                     nSkipSize = std::get<EJI_SIZE>(outTuple) - static_cast<int>(nReadSize);
-                    pCurBuf += nReadSize;
+                    nCurOffset += (nReadSize + 2);
                     nReadSize = 0;
                     break;
                 }
@@ -70,6 +83,7 @@ int main(int argc, const char * argv[]) {
                 {
                     auto nCurDataSize = std::get<EJI_SIZE>(outTuple) + 2;
                     pCurBuf += nCurDataSize;
+                    nCurOffset += nCurDataSize;
                     nReadSize -= nCurDataSize;
                 }
             }
@@ -79,6 +93,7 @@ int main(int argc, const char * argv[]) {
                 break;
             }
         }   //! end of while ParseJpegData()
+
     }   //! end of while fread()
     
     return 0;

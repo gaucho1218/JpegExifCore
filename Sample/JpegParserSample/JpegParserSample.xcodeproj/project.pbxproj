@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BAE2D331F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BAE2D321F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib */; };
+		5BA3B6161F729EEA00AD59A8 /* libJpegExifEditor-Core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BAE2D321F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib */; };
+		5BA3B6171F729FDD00AD59A8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBC811B1F6E5084008B1827 /* main.cpp */; };
 		5BAE2D341F6EBE91001A6085 /* libJpegExifEditor-Core.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BAE2D321F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib */; };
-		5BBC811C1F6E5084008B1827 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBC811B1F6E5084008B1827 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BAE2D331F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib in Frameworks */,
+				5BA3B6161F729EEA00AD59A8 /* libJpegExifEditor-Core.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BBC811C1F6E5084008B1827 /* main.cpp in Sources */,
+				5BA3B6171F729FDD00AD59A8 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

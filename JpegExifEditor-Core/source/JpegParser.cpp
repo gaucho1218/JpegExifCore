@@ -7,6 +7,7 @@
 //
 
 #include "JpegParser.h"
+#include <arpa/inet.h>
 
 TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) noexcept
 {
@@ -18,7 +19,7 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) no
     
     //! need effective way to parse JPEG header
     const unsigned short *pHdr = reinterpret_cast<unsigned short *>(const_cast<char *>(pBuf));
-    int nHdrOffset{nOffset};
+    int nHdrOffset{nOffset/2};
     
     while( true )
     {
@@ -39,7 +40,11 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) no
             //! check buffer has enough to get size
             if( (char *)pHdr + 2 <= pBuf + nSize )
             {
+#ifdef __LITTLE_ENDIAN__
+                nDataSize = ntohs(*(pHdr + 1));
+#else
                 nDataSize = *(pHdr + 1);
+#endif
             }
             
             tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nHdrOffset * 2, nDataSize);
