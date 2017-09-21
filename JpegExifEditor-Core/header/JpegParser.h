@@ -12,7 +12,13 @@
 #include <tuple>
 
 #ifdef _WIN32
-#define JPEGFUNC_API	__declspec(dllexport)
+#ifdef JPGEXFDLL_EXPORT
+#define JPGEXFDLL	__declspec(dllexport)
+#else
+#define JPGEXFDLL	__declspec(dllimport)
+#endif
+#else
+#define JPGEXFDLL
 #endif
 
 enum EJpegHdrType
@@ -53,6 +59,6 @@ using TJpegInfo = std::tuple<EJpegHdrType, int, short>;
 
 //! parse jpeg data and return its attributes, offset, size
 //! check TJpegInfo's size part if header type has additional size
-JPEGFUNC_API TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) noexcept;
+JPGEXFDLL TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) noexcept;
 
 #endif

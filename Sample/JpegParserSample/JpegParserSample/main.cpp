@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
     auto nSize = 1024;
     auto nSkipSize = 0;
     auto nCurOffset{0};
-    auto nReadSize{0};
+    size_t nReadSize{0};
     auto pBufStart = malloc(nSize);
     if( pBufStart == nullptr )
     {
@@ -35,7 +35,7 @@ int main(int argc, const char * argv[]) {
     
     while(!bEOI)
     {
-        printf("Current nReadSize: %d\n", nReadSize);
+        printf("Current nReadSize: %lu\n", nReadSize);
         nReadSize = fread((char *)(pBufStart) + nReadSize, 1, nSize - nReadSize, pFile);
         pCurBuf = reinterpret_cast<char *>(pBufStart);
         
