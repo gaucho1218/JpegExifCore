@@ -7,7 +7,11 @@
 //
 
 #include "JpegParser.h"
-#include <arpa/inet.h>
+
+short ChangeEndian16(short nData)
+{
+	return (nData << 8 | ((nData >> 8) & 0x00FF));
+}
 
 TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) noexcept
 {
@@ -40,8 +44,8 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) no
             //! check buffer has enough to get size
             if( (char *)pHdr + 2 <= pBuf + nSize )
             {
-#ifdef __LITTLE_ENDIAN__
-                nDataSize = ntohs(*(pHdr + 1));
+#if defined __LITTLE_ENDIAN__ || defined _WIN32
+                nDataSize = ChangeEndian16(*(pHdr + 1));
 #else
                 nDataSize = *(pHdr + 1);
 #endif

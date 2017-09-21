@@ -14,7 +14,7 @@
 enum EJpegHdrType
 {
 	EJPEG_NONE = 0,
-#ifdef __LITTLE_ENDIAN__
+#if defined __LITTLE_ENDIAN__ || defined _WIN32
 	EJPEG_SOI = 0xD8FF,		//! FFD8
 	EJPEG_APP = 0xE0FF,		//! FFE0 ~ FFEF
     EJPEG_APPMAX = 0xEFFF,
