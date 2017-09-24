@@ -22,14 +22,17 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) no
 
     
     //! need effective way to parse JPEG header
-    const unsigned short *pHdr = reinterpret_cast<unsigned short *>(const_cast<char *>(pBuf));
-    int nHdrOffset{nOffset/2};
+    // const unsigned short *pHdr = reinterpret_cast<unsigned short *>(const_cast<char *>(pBuf));
+    const unsigned short *pHdr = nullptr;
+    int nHdrOffset{nOffset};
     
     while( true )
     {
+        pHdr = reinterpret_cast<unsigned short *>(const_cast<char *>(pBuf));
+        
         if( (*pHdr == EJPEG_SOI) || (*pHdr == EJPEG_EOI) )
         {
-            tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nHdrOffset * 2, 0);
+            tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nHdrOffset, 0);
             break;
         }
         else if( (*pHdr >= EJPEG_APP && *pHdr <= EJPEG_APPMAX) ||
@@ -51,11 +54,11 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) no
 #endif
             }
             
-            tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nHdrOffset * 2, nDataSize);
+            tRet = std::make_tuple(static_cast<EJpegHdrType>(*pHdr), nHdrOffset, nDataSize);
             break;
         }
         
-        ++pHdr;
+        ++pBuf;
         ++nHdrOffset;
         if( (char *)pHdr >= (pBuf + nSize) )
         {
