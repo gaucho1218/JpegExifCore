@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B46DEC31F77753300B97C80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B46DEC21F77753300B97C80 /* main.cpp */; };
 		5BA3B6161F729EEA00AD59A8 /* libJpegExifEditor-Core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BAE2D321F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib */; };
-		5BA3B6171F729FDD00AD59A8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBC811B1F6E5084008B1827 /* main.cpp */; };
 		5BAE2D341F6EBE91001A6085 /* libJpegExifEditor-Core.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BAE2D321F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib */; };
 /* End PBXBuildFile section */
 
@@ -26,9 +26,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B46DEC21F77753300B97C80 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5BAE2D321F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libJpegExifEditor-Core.dylib"; path = "../../JpegExifEditor-Core/lib/libJpegExifEditor-Core.dylib"; sourceTree = "<group>"; };
 		5BBC81181F6E5084008B1827 /* JpegParserSample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JpegParserSample; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BBC811B1F6E5084008B1827 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 		5BBC811A1F6E5084008B1827 /* JpegParserSample */ = {
 			isa = PBXGroup;
 			children = (
-				5BBC811B1F6E5084008B1827 /* main.cpp */,
+				5B46DEC21F77753300B97C80 /* main.cpp */,
 			);
 			path = JpegParserSample;
 			sourceTree = "<group>";
@@ -133,7 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BA3B6171F729FDD00AD59A8 /* main.cpp in Sources */,
+				5B46DEC31F77753300B97C80 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

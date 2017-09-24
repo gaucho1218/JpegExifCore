@@ -35,7 +35,6 @@ int main(int argc, const char * argv[]) {
     
     while(!bEOI)
     {
-        printf("Current nReadSize: %lu\n", nReadSize);
         nReadSize = fread((char *)(pBufStart) + nReadSize, 1, nSize - nReadSize, pFile);
         pCurBuf = reinterpret_cast<char *>(pBufStart);
         
