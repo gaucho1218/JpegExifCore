@@ -9,6 +9,11 @@
 #ifndef JpgParseSample_h
 #define JpgParseSample_h
 
-void JpegHdrFullParse(void);
+class CJpgPasrseSample
+{
+public:
+    
+protected:
+};
 
 #endif /* JpgParseSample_h */

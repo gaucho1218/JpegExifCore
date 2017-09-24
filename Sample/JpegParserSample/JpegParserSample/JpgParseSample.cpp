@@ -8,7 +8,3 @@
 
 #include "JpgParseSample.h"
 
-void JpegHdrFullParse(void)
-{
-    
-}
