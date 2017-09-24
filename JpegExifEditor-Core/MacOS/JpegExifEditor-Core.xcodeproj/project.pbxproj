@@ -12,8 +12,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B61B7811F5C185F00C7B65B /* JpegParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JpegParser.h; path = ../header/JpegParser.h; sourceTree = "<group>"; };
-		5B61B7831F5C186900C7B65B /* JpegParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JpegParser.cpp; path = ../source/JpegParser.cpp; sourceTree = "<group>"; };
+		5B61B7811F5C185F00C7B65B /* JpegParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; name = JpegParser.h; path = ../header/JpegParser.h; sourceTree = "<group>"; };
+		5B61B7831F5C186900C7B65B /* JpegParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; name = JpegParser.cpp; path = ../source/JpegParser.cpp; sourceTree = "<group>"; };
 		5BAB49561F5AB96B00CC6AAB /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libJpegExifEditor-Core.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
