@@ -9,9 +9,10 @@
 #include <iostream>
 
 #include "JpegParser.h"
+#include "DebugPrint.h"
 
-int main(int argc, const char * argv[]) {
-    
+int main(int argc, const char * argv[])
+{
     FILE *pFile = fopen("../sample_beer.jpg", "rb");
     if( pFile == nullptr )
     {

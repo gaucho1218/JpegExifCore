@@ -15,6 +15,7 @@
 		5B61B7811F5C185F00C7B65B /* JpegParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; name = JpegParser.h; path = ../header/JpegParser.h; sourceTree = "<group>"; };
 		5B61B7831F5C186900C7B65B /* JpegParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; name = JpegParser.cpp; path = ../source/JpegParser.cpp; sourceTree = "<group>"; };
 		5BAB49561F5AB96B00CC6AAB /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libJpegExifEditor-Core.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC3C9F31FEBF8F3002C1708 /* DebugPrint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DebugPrint.h; path = ../header/DebugPrint.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +33,7 @@
 			isa = PBXGroup;
 			children = (
 				5B61B7811F5C185F00C7B65B /* JpegParser.h */,
+				5BC3C9F31FEBF8F3002C1708 /* DebugPrint.h */,
 			);
 			name = header;
 			sourceTree = "<group>";
