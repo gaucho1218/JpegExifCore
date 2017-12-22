@@ -12,7 +12,7 @@
 #include <tuple>
 
 #ifdef _WIN32
-#ifdef JPGEXFDLL_EXPORT
+#ifdef _WINDLL
 #define JPGEXFDLL	__declspec(dllexport)
 #else
 #define JPGEXFDLL	__declspec(dllimport)

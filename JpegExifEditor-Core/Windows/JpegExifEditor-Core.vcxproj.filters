@@ -14,6 +14,9 @@
     <ClInclude Include="..\header\JpegParser.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="..\header\DebugPrint.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\JpegParser.cpp">

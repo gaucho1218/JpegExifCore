@@ -9,8 +9,7 @@
 #ifndef DebugPrint_h
 #define DebugPrint_h
 
-//! XCODE
-#ifdef DEBUG
+#if defined(DEBUG) || defined(_DEBUG)
 #include <stdio.h>
 #define JPDebugPrint(fmt, args...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, ##args)
 #else
