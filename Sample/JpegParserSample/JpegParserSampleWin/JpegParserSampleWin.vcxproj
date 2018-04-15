@@ -104,6 +104,9 @@
       <AdditionalDependencies>JpegExifEditor-Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\..\JpegExifEditor-Core\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>copy /Y "$(SolutionDir)\..\..\..\JpegExifEditor-Core\lib\JpegExifEditor-Core.dll" "$(SolutionDir)\JpegExifEditor-Core.dll"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -148,6 +151,9 @@
       <AdditionalDependencies>JpegExifEditor-Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\..\JpegExifEditor-Core\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PreBuildEvent>
+      <Command>copy /Y "$(SolutionDir)\..\..\..\JpegExifEditor-Core\lib\JpegExifEditor-Core.dll" "$(SolutionDir)\JpegExifEditor-Core.dll"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
