@@ -27,7 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5B46DEC21F77753300B97C80 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5B46DEC21F77753300B97C80 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = main.cpp; sourceTree = "<group>"; };
 		5B46DEC41F77778F00B97C80 /* JpgParseSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = JpgParseSample.h; sourceTree = "<group>"; };
 		5B46DEC51F7777FD00B97C80 /* JpgParseSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = JpgParseSample.cpp; sourceTree = "<group>"; };
 		5BAE2D321F6EBE7F001A6085 /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libJpegExifEditor-Core.dylib"; path = "../../JpegExifEditor-Core/lib/libJpegExifEditor-Core.dylib"; sourceTree = "<group>"; };

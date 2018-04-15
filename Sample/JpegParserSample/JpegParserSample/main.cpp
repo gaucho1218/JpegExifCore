@@ -17,6 +17,7 @@ int main(int argc, const char * argv[])
     if( pFile == nullptr )
     {
         printf("Open Failed\n");
+        return -1;
     }
     
     auto nSize = 1024;
