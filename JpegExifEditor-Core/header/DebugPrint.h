@@ -11,7 +11,7 @@
 
 #if defined(DEBUG) || defined(_DEBUG)
 #include <stdio.h>
-#define JPDebugPrint(fmt, args...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, ##args)
+#define JPDebugPrint(fmt, args, ...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, ##args)
 #else
 DebugPrint(...)
 #endif
