@@ -81,8 +81,7 @@ int main(int argc, const char * argv[])
             
             if( std::get<EJI_HDR>(outTuple) != EJPEG_NONE )
             {
-                //printf("Type: 0x%02X\t", std::get<EJI_HDR>(outTuple));
-				printf("Type: %s\t", GetJpegName(std::get<EJI_HDR>(outTuple)));
+				printf("Type: %s(0x%02X)\t", GetJpegName(std::get<EJI_HDR>(outTuple)), std::get<EJI_HDR>(outTuple));
                 printf("Offset: %d\t", std::get<EJI_OFFSET>(outTuple));
                 printf("Size: %d\n", std::get<EJI_SIZE>(outTuple));
                 
