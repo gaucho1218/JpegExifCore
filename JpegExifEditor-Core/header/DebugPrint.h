@@ -1,4 +1,4 @@
-//
+﻿//
 //  DebugPrint.h
 //  JpegExifEditor-Core
 //

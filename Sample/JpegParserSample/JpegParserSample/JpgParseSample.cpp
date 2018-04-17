@@ -1,4 +1,4 @@
-//
+﻿//
 //  JpgParseSample.cpp
 //  JpegParserSample
 //

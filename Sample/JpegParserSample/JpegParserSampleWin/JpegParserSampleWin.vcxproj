@@ -189,7 +189,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\JpegParserSample\JpgParseSample.cpp" />
     <ClCompile Include="..\JpegParserSample\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\JpegParserSample\JpgParseSample.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

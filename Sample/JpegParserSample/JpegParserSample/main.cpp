@@ -1,4 +1,4 @@
-//
+﻿//
 //  main.cpp
 //  JpegParserSample
 //
@@ -97,7 +97,7 @@ int main(int argc, const char * argv[])
                     nReadSize -= 2;
                     nCurOffset += 2;
                 }
-                else if( std::get<EJI_SIZE>(outTuple) > (nReadSize +2) )
+                else if( static_cast<size_t>(std::get<EJI_SIZE>(outTuple)) > (nReadSize +2) )
                 {
                     //! need to read more data from file
                     nSkipSize = std::get<EJI_SIZE>(outTuple) - static_cast<int>(nReadSize);
