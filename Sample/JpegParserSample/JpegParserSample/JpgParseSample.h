@@ -12,6 +12,8 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#include "JpegParser.h"
+
 class CJpgPasrseSample
 {
 public:
@@ -22,8 +24,8 @@ public:
     bool Open(const char *pJpeg);
     bool Close(void);
     
-    //! returns last offset
-    int64_t ParseJpegData(void);
+    //! returns last offset and return parsed info to kParseInfo
+    int64_t ParseJpegData(TJpegInfo &kParseInfo);
     
 protected:
     FILE    *m_pFile;

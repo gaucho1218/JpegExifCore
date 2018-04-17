@@ -43,7 +43,7 @@ bool CJpgPasrseSample::Close(void)
     return true;
 }
 
-int64_t CJpgPasrseSample::ParseJpegData(void)
+int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
 {
     return m_nOffset;
 }
