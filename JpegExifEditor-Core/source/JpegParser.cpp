@@ -70,3 +70,37 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) no
 
 	return tRet;
 }
+
+char *GetJpegName(EJpegHdrType nJpegHdr)
+{
+	char *pRet = nullptr;
+
+	switch (nJpegHdr)
+	{
+	case EJPEG_SOI:
+		pRet = "Start Of Image";
+		break;
+	case EJPEG_DQT:
+		pRet = "Define Quantization Table";
+		break;
+	case EJPEG_DHT:
+		pRet = "Define Huffman Table";
+		break;
+	case EJPEG_SOS:
+		pRet = "Start Of Scan";
+		break;
+	case EJPEG_EOI:
+		pRet = "End Of Image";
+		break;
+	default:
+		if (nJpegHdr >= EJPEG_APP && nJpegHdr <= EJPEG_APPMAX)
+			pRet = "App Data";
+		else if (nJpegHdr >= EJPEG_SOF && nJpegHdr <= EJPEG_SOFMAX)
+			pRet = "Start Of Frame";
+		else
+			pRet = "Unknown JPEG Type";
+		break;
+	}
+
+	return pRet;
+}

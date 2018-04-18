@@ -1,4 +1,4 @@
-//
+﻿//
 //  JpgParseSample.cpp
 //  JpegParserSample
 //
@@ -43,7 +43,15 @@ bool CJpgPasrseSample::Close(void)
     return true;
 }
 
-int64_t CJpgPasrseSample::ParseJpegData(void)
+int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
 {
+
+
     return m_nOffset;
+}
+
+int64_t CJpgPasrseSample::ParseJpegData(int nOffset, TJpegInfo &kParseInfo)
+{
+	//! move offset to nOffset and parse its data
+	return m_nOffset;
 }

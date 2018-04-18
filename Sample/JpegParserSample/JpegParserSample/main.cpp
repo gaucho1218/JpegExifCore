@@ -1,4 +1,4 @@
-//
+﻿//
 //  main.cpp
 //  JpegParserSample
 //
@@ -17,6 +17,7 @@ int main(int argc, const char * argv[])
     if( pFile == nullptr )
     {
         printf("Open Failed\n");
+        return -1;
     }
     
     auto nSize = 1024;
@@ -80,7 +81,7 @@ int main(int argc, const char * argv[])
             
             if( std::get<EJI_HDR>(outTuple) != EJPEG_NONE )
             {
-                printf("Type: 0x%02X\t", std::get<EJI_HDR>(outTuple));
+				printf("Type: %s(0x%02X)\t", GetJpegName(std::get<EJI_HDR>(outTuple)), std::get<EJI_HDR>(outTuple));
                 printf("Offset: %d\t", std::get<EJI_OFFSET>(outTuple));
                 printf("Size: %d\n", std::get<EJI_SIZE>(outTuple));
                 
@@ -96,7 +97,7 @@ int main(int argc, const char * argv[])
                     nReadSize -= 2;
                     nCurOffset += 2;
                 }
-                else if( std::get<EJI_SIZE>(outTuple) > (nReadSize +2) )
+                else if( static_cast<size_t>(std::get<EJI_SIZE>(outTuple)) > (nReadSize +2) )
                 {
                     //! need to read more data from file
                     nSkipSize = std::get<EJI_SIZE>(outTuple) - static_cast<int>(nReadSize);
