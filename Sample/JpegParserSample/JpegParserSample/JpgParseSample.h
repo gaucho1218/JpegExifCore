@@ -27,6 +27,8 @@ public:
     //! returns last offset and return parsed info to kParseInfo
     int64_t ParseJpegData(TJpegInfo &kParseInfo);
     
+	int64_t ParseJpegData(int nOffset, TJpegInfo &kParseInfo);
+
 protected:
     FILE    *m_pFile;
     int64_t m_nOffset;
