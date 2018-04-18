@@ -69,18 +69,28 @@ int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
 	if (m_pFile == nullptr)
 		return -1;
 
-	//! skip data if exist
-	if (m_nSkipSize > 0)
+	auto bRead{ true };
+	while (bRead == true)
 	{
-
-	}
-
-	//! read if need more data
-	if (m_nReadSize < 4)
-	{
-		m_nReadSize = fread(m_pBuf + m_nReadSize,
+		auto nSize = fread(m_pBuf + m_nReadSize,
 			1, static_cast<size_t>(m_nBufSize - m_nReadSize),
 			m_pFile);
+
+		if (nSize <= 0)
+		{
+			//! EOF or error
+			return -1;
+		}
+
+		m_nReadSize += nSize;
+
+		//! check skip is exist
+		if (m_nSkipSize >= 0)
+		{
+
+		}
+		else
+			bRead = false;
 	}
 
 	//! parse
