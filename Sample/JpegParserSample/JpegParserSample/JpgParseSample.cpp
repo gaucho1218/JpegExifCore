@@ -22,7 +22,7 @@ CJpgPasrseSample::CJpgPasrseSample(int nBufSize)
 
 CJpgPasrseSample::~CJpgPasrseSample(void)
 {
-    Close();
+	Close();
 }
 
 bool CJpgPasrseSample::Open(const char *pJpeg)
@@ -36,26 +36,32 @@ bool CJpgPasrseSample::Open(const char *pJpeg)
 		return false;
 	}
 
-    if( pJpeg != nullptr )
-    {
-        m_pFile = fopen(pJpeg, "rb");
-        if( m_pFile != nullptr )
-            return true;
-        JPDebugPrint("File is Invalid: %s\n", pJpeg);
-    }
-    
-    return false;
+	if (pJpeg != nullptr)
+	{
+		m_pFile = fopen(pJpeg, "rb");
+		if (m_pFile != nullptr)
+			return true;
+		JPDebugPrint("File is Invalid: %s\n", pJpeg);
+	}
+
+	return false;
 }
 
 bool CJpgPasrseSample::Close(void)
 {
-    if( m_pFile != nullptr )
-    {
-        fclose(m_pFile);
-        m_pFile = nullptr;
-    }
-    
-    return true;
+	if (m_pFile != nullptr)
+	{
+		fclose(m_pFile);
+		m_pFile = nullptr;
+	}
+
+	if (m_pBuf != nullptr)
+	{
+		free(m_pBuf);
+		m_pBuf = NULL;
+	}
+
+	return true;
 }
 
 int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
@@ -79,7 +85,7 @@ int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
 
 	//! parse
 
-    return m_nOffset;
+	return m_nOffset;
 }
 
 int64_t CJpgPasrseSample::ParseJpegData(int nOffset, TJpegInfo &kParseInfo)
