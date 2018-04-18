@@ -18,6 +18,7 @@ class CJpgPasrseSample
 {
 public:
     CJpgPasrseSample(void);
+	CJpgPasrseSample(int nBufSize);
     virtual ~CJpgPasrseSample(void);
     
     //! supports FILE first (do HTTP later?)
@@ -30,8 +31,12 @@ public:
 	int64_t ParseJpegData(int nOffset, TJpegInfo &kParseInfo);
 
 protected:
-    FILE    *m_pFile;
-    int64_t m_nOffset;
+    FILE		*m_pFile;
+    int64_t		m_nOffset;
+	int64_t		m_nReadSize;
+	int64_t		m_nSkipSize;
+	const int	m_nBufSize;		//! default size is 4K
+	char		*m_pBuf;
 };
 
 #endif /* JpgParseSample_h */

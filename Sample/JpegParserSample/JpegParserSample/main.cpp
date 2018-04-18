@@ -11,6 +11,8 @@
 #include "JpegParser.h"
 #include "DebugPrint.h"
 
+#include "JpgParseSample.h"
+
 int main(int argc, const char * argv[])
 {
     FILE *pFile = fopen("../sample_beer.jpg", "rb");
