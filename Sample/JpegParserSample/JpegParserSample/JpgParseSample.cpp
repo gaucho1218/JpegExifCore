@@ -67,8 +67,12 @@ bool CJpgPasrseSample::Close(void)
 int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
 {
 	if (m_pFile == nullptr)
+	{
+		JPDebugPrint("Not Open yet\n");
 		return -1;
+	}
 
+	//! read and skip
 	auto bRead{ true };
 	while (bRead == true)
 	{
@@ -78,16 +82,19 @@ int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
 
 		if (nSize <= 0)
 		{
-			//! EOF or error
-			return -1;
+			JPDebugPrint("EOF or error: %d\n", nSize);
+			break;
 		}
 
 		m_nReadSize += nSize;
 
 		//! check skip is exist
-		if (m_nSkipSize >= 0)
+		if (m_nSkipSize > 0)
 		{
-
+			auto nSkip = nSize > m_nSkipSize ? m_nSkipSize : nSize;
+			m_nOffset += nSkip;
+			m_nReadSize -= nSkip;
+			m_nSkipSize -= nSkip;
 		}
 		else
 			bRead = false;
@@ -101,8 +108,27 @@ int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
 int64_t CJpgPasrseSample::ParseJpegData(int nOffset, TJpegInfo &kParseInfo)
 {
 	if (m_pFile == nullptr)
+	{
+		JPDebugPrint("Not Open yet\n");
 		return -1;
+	}
+	if (nOffset < 0)
+	{
+		JPDebugPrint("Invalid target offset(%d)\n", nOffset);
+		return -1;
+	}
 
-	//! move offset to nOffset and parse its data
+	//! move offset to nOffset
+	m_nOffset = nOffset;
+	fseek(m_pFile, m_nOffset, SEEK_SET);
+
+	//! clear buffer
+	memset(m_pBuf, 0, m_nBufSize);
+	m_nReadSize = 0;
+	m_nSkipSize = 0;
+	
+	//! parse it
+	ParseJpegData(kParseInfo);
+
 	return m_nOffset;
 }
