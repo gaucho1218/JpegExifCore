@@ -64,7 +64,7 @@ bool CJpgPasrseSample::Close(void)
 	return true;
 }
 
-int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
+int64_t CJpgPasrseSample::ParseJpg(TJpegInfo &kParseInfo)
 {
 	if (m_pFile == nullptr)
 	{
@@ -101,11 +101,13 @@ int64_t CJpgPasrseSample::ParseJpegData(TJpegInfo &kParseInfo)
 	}
 
 	//! parse
+	kParseInfo = ParseJpegData(m_pBuf, static_cast<int>(m_nReadSize),
+		static_cast<int>(m_nOffset));
 
 	return m_nOffset;
 }
 
-int64_t CJpgPasrseSample::ParseJpegData(int nOffset, TJpegInfo &kParseInfo)
+int64_t CJpgPasrseSample::ParseJpg(int nOffset, TJpegInfo &kParseInfo)
 {
 	if (m_pFile == nullptr)
 	{
@@ -128,7 +130,7 @@ int64_t CJpgPasrseSample::ParseJpegData(int nOffset, TJpegInfo &kParseInfo)
 	m_nSkipSize = 0;
 	
 	//! parse it
-	ParseJpegData(kParseInfo);
+	ParseJpg(kParseInfo);
 
 	return m_nOffset;
 }

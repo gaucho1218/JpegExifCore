@@ -26,9 +26,8 @@ public:
 	bool Close(void);
 
 	//! returns last offset and return parsed info to kParseInfo
-	int64_t ParseJpegData(TJpegInfo &kParseInfo);
-
-	int64_t ParseJpegData(int nOffset, TJpegInfo &kParseInfo);
+	int64_t ParseJpg(TJpegInfo &kParseInfo);
+	int64_t ParseJpg(int nOffset, TJpegInfo &kParseInfo);
 
 protected:
 	FILE		*m_pFile;
