@@ -8,13 +8,23 @@
 
 #include <iostream>
 
-#include "JpegParser.h"
-#include "DebugPrint.h"
-
 #include "JpgParseSample.h"
+#include "DebugPrint.h"
 
 int main(int argc, const char * argv[])
 {
+	CJpgPasrseSample kParser;
+	
+	if (kParser.Open("../sample_beer.jpg") == false)
+	{
+		JPDebugPrint("Couldn't Open\n");
+		return -1;
+	}
+
+	TJpegInfo kInfo;
+	kParser.ParseJpg(kInfo);
+	
+	/*
 	FILE *pFile = fopen("../sample_beer.jpg", "rb");
 	if (pFile == nullptr)
 	{
@@ -123,6 +133,7 @@ int main(int argc, const char * argv[])
 		}   //! end of while ParseJpegData()
 
 	}   //! end of while fread()
+	*/
 
 	return 0;
 }
