@@ -10,6 +10,8 @@
 #include "JpegParser.h"
 #include "DebugPrint.h"
 
+using namespace std;
+
 CJpgPasrseSample::CJpgPasrseSample(void)
 	: m_pFile(nullptr), m_nOffset(0), m_nReadSize(0), m_nSkipSize(0), m_nBufSize(4 * 1024)
 {
@@ -104,6 +106,12 @@ int64_t CJpgPasrseSample::ParseJpg(TJpegInfo &kParseInfo)
 	kParseInfo = ParseJpegData(m_pBuf, static_cast<int>(m_nReadSize),
 		static_cast<int>(m_nOffset));
 
+	if (get<EJI_HDR>(kParseInfo) != EJPEG_NONE)
+	{
+		//! check size
+
+	}
+
 	return m_nOffset;
 }
 
@@ -122,7 +130,7 @@ int64_t CJpgPasrseSample::ParseJpg(int nOffset, TJpegInfo &kParseInfo)
 
 	//! move offset to nOffset
 	m_nOffset = nOffset;
-	fseek(m_pFile, m_nOffset, SEEK_SET);
+	fseek(m_pFile, static_cast<long>(m_nOffset), SEEK_SET);
 
 	//! clear buffer
 	memset(m_pBuf, 0, m_nBufSize);
