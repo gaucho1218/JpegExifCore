@@ -14,7 +14,7 @@
 #ifdef _WIN32
 #define JPDebugPrint(fmt, ...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, __VA_ARGS__)
 #else
-#define JPDebugPrint(fmt, ...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, __VA_ARGS__)
+#define JPDebugPrint(fmt, args...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, ##args)
 #endif
 #else
 DebugPrint(...)
