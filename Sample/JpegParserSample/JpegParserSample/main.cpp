@@ -19,7 +19,16 @@ int main(int argc, const char * argv[])
 		return -1;
 
 	TJpegInfo kInfo;
-	kParser.ParseJpg(kInfo);
+    
+    while( std::get<EJI_HDR>(kInfo) != EJPEG_EOI )
+    {
+        kParser.ParseJpg(kInfo);
+        
+        if( std::get<EJI_HDR>(kInfo) != EJPEG_NONE )
+        {
+            printf("%s\n", GetJpegName(std::get<EJI_HDR>(kInfo)));
+        }
+    }
 	
 	/*
 	FILE *pFile = fopen("../sample_beer.jpg", "rb");
