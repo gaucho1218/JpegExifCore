@@ -254,7 +254,7 @@
 		5BBC81201F6E5084008B1827 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				HEADER_SEARCH_PATHS = (
 					"../../JpegExifEditor-Core/header",
 					/JpegParserSample,
@@ -270,7 +270,7 @@
 		5BBC81211F6E5084008B1827 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				HEADER_SEARCH_PATHS = (
 					"../../JpegExifEditor-Core/header",
 					/JpegParserSample,

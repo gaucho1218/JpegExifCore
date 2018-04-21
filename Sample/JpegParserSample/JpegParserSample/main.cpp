@@ -16,10 +16,7 @@ int main(int argc, const char * argv[])
 	CJpgPasrseSample kParser;
 	
 	if (kParser.Open("../sample_beer.jpg") == false)
-	{
-		JPDebugPrint("Could not Open\n");
 		return -1;
-	}
 
 	TJpegInfo kInfo;
 	kParser.ParseJpg(kInfo);
