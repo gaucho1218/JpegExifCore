@@ -1,4 +1,4 @@
-﻿//
+//
 //  JpgParseSample.cpp
 //  JpegParserSample
 //
@@ -43,7 +43,7 @@ bool CJpgPasrseSample::Open(const char *pJpeg)
 		m_pFile = fopen(pJpeg, "rb");
 		if (m_pFile != nullptr)
 			return true;
-		JPDebugPrint("File is Invalid: %s\n", pJpeg);
+		JPDebugPrint("Could not open file: %s\n", pJpeg);
 	}
 
 	return false;
@@ -84,7 +84,7 @@ int64_t CJpgPasrseSample::ParseJpg(TJpegInfo &kParseInfo)
 
 		if (nSize <= 0)
 		{
-			JPDebugPrint("EOF or error: %d\n", nSize);
+			JPDebugPrint("EOF or error: %lu\n", nSize);
 			break;
 		}
 

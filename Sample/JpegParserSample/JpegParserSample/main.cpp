@@ -1,4 +1,4 @@
-﻿//
+//
 //  main.cpp
 //  JpegParserSample
 //
@@ -17,7 +17,7 @@ int main(int argc, const char * argv[])
 	
 	if (kParser.Open("../sample_beer.jpg") == false)
 	{
-		JPDebugPrint("Couldn't Open\n");
+		JPDebugPrint("Could not Open\n");
 		return -1;
 	}
 
