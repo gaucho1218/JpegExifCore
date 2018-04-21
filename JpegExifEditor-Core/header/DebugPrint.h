@@ -1,4 +1,4 @@
-﻿//
+//
 //  DebugPrint.h
 //  JpegExifEditor-Core
 //
@@ -14,7 +14,7 @@
 #ifdef _WIN32
 #define JPDebugPrint(fmt, ...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, __VA_ARGS__)
 #else
-#define JPDebugPrint(fmt, args...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, ##args)
+#define JPDebugPrint(fmt, ...)  fprintf(stderr, "[%s, %d]: " fmt, __FILE__, __LINE__, __VA_ARGS__)
 #endif
 #else
 DebugPrint(...)

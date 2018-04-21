@@ -62,6 +62,6 @@ using TJpegInfo = std::tuple<EJpegHdrType, int, short>;
 JPGEXFDLL TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) noexcept;
 
 //! return jpeg header name for testing or debugging
-JPGEXFDLL char *GetJpegName(EJpegHdrType nJpegHdr);
+JPGEXFDLL char const *GetJpegName(EJpegHdrType nJpegHdr);
 
 #endif

@@ -71,9 +71,9 @@ TJpegInfo ParseJpegData(const char *pBuf, const int nSize, const int nOffset) no
 	return tRet;
 }
 
-char *GetJpegName(EJpegHdrType nJpegHdr)
+char const *GetJpegName(EJpegHdrType nJpegHdr)
 {
-	char *pRet = nullptr;
+	char const *pRet = nullptr;
 
 	switch (nJpegHdr)
 	{
