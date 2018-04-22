@@ -1,4 +1,4 @@
-﻿//
+//
 //  JpgParseSample.h
 //  JpegParserSample
 //
@@ -36,6 +36,7 @@ protected:
 	int64_t		m_nSkipSize;
 	const int	m_nBufSize;		//! default size is 4K
 	char		*m_pBuf;
+    bool        m_bAfterSOS;
 };
 
 #endif /* JpgParseSample_h */

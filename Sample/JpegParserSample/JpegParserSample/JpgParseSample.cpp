@@ -1,4 +1,4 @@
-﻿//
+//
 //  JpgParseSample.cpp
 //  JpegParserSample
 //
@@ -13,12 +13,14 @@
 using namespace std;
 
 CJpgPasrseSample::CJpgPasrseSample(void)
-	: m_pFile(nullptr), m_nOffset(0), m_nReadSize(0), m_nSkipSize(0), m_nBufSize(4 * 1024)
+	: m_pFile(nullptr), m_nOffset(0), m_nReadSize(0), m_nSkipSize(0), m_nBufSize(4 * 1024),
+    m_pBuf(nullptr), m_bAfterSOS(false)
 {
 }
 
 CJpgPasrseSample::CJpgPasrseSample(int nBufSize)
-	: m_pFile(nullptr), m_nOffset(0), m_nReadSize(0), m_nSkipSize(0), m_nBufSize(nBufSize)
+	: m_pFile(nullptr), m_nOffset(0), m_nReadSize(0), m_nSkipSize(0), m_nBufSize(nBufSize),
+    m_pBuf(nullptr), m_bAfterSOS(false)
 {
 }
 
@@ -101,23 +103,31 @@ int64_t CJpgPasrseSample::ParseJpg(TJpegInfo &kParseInfo)
 
 	if (get<EJI_HDR>(kParseInfo) != EJPEG_NONE)
 	{
-		//! check size
-		auto nTargetSize = get<EJI_SIZE>(kParseInfo) == 0 ? 2 : get<EJI_SIZE>(kParseInfo) + 2;
-
-		if (nTargetSize > m_nReadSize + 2)
-		{
-			m_nSkipSize += get<EJI_SIZE>(kParseInfo) - static_cast<int>(m_nReadSize);
-			m_nOffset += m_nReadSize + 2;
-			m_nReadSize = 0;
-			nTargetSize = 0;
-		}
-
-		//! memmove
-		memmove(m_pBuf, m_pBuf + nTargetSize, static_cast<size_t>(m_nReadSize - nTargetSize));
-		//! change offset
-		m_nOffset += nTargetSize;
-		m_nReadSize -= nTargetSize;
-	}
+        //! check size
+        auto nTargetSize = get<EJI_SIZE>(kParseInfo) == 0 ? 2 : get<EJI_SIZE>(kParseInfo) + 2;
+        
+        //! exception cases
+        if( get<EJI_HDR>(kParseInfo) == EJPEG_SOS ||
+           (m_bAfterSOS == true && get<EJI_HDR>(kParseInfo) != EJPEG_EOI))
+        {
+            m_bAfterSOS = true;
+            nTargetSize = 2;
+            kParseInfo = make_tuple(EJPEG_NONE, 0, 0);
+        }
+        else if (nTargetSize > m_nReadSize + 2)
+        {
+            m_nSkipSize += get<EJI_SIZE>(kParseInfo) - static_cast<int>(m_nReadSize);
+            m_nOffset += m_nReadSize + 2;
+            m_nReadSize = 0;
+            nTargetSize = 0;
+        }
+        
+        //! memmove
+        memmove(m_pBuf, m_pBuf + nTargetSize, static_cast<size_t>(m_nReadSize - nTargetSize));
+        //! change offset
+        m_nOffset += nTargetSize;
+        m_nReadSize -= nTargetSize;
+    }
 
 	return m_nOffset;
 }
@@ -143,6 +153,8 @@ int64_t CJpgPasrseSample::ParseJpg(int nOffset, TJpegInfo &kParseInfo)
 	memset(m_pBuf, 0, m_nBufSize);
 	m_nReadSize = 0;
 	m_nSkipSize = 0;
+    
+    m_bAfterSOS = false;
 	
 	//! parse it
 	ParseJpg(kParseInfo);
