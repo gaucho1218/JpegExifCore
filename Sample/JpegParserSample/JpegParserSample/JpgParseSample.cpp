@@ -1,4 +1,4 @@
-//
+﻿//
 //  JpgParseSample.cpp
 //  JpegParserSample
 //
@@ -75,18 +75,13 @@ int64_t CJpgPasrseSample::ParseJpg(TJpegInfo &kParseInfo)
 	}
 
 	//! read and skip
-	auto bRead{ true };
-	while (bRead == true)
 	{
 		auto nSize = fread(m_pBuf + m_nReadSize,
 			1, static_cast<size_t>(m_nBufSize - m_nReadSize),
 			m_pFile);
 
 		if (nSize <= 0)
-		{
 			JPDebugPrint("EOF or error: %lu\n", nSize);
-			break;
-		}
 
 		m_nReadSize += nSize;
 
@@ -98,8 +93,6 @@ int64_t CJpgPasrseSample::ParseJpg(TJpegInfo &kParseInfo)
 			m_nReadSize -= nSkip;
 			m_nSkipSize -= nSkip;
 		}
-		else
-			bRead = false;
 	}
 
 	//! parse

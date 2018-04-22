@@ -25,9 +25,9 @@ int main(int argc, const char * argv[])
         kParser.ParseJpg(kInfo);
         
         if( std::get<EJI_HDR>(kInfo) != EJPEG_NONE )
-        {
-            printf("%s\n", GetJpegName(std::get<EJI_HDR>(kInfo)));
-        }
+            printf("%s, offset:%d, size: %d\n",
+				GetJpegName(std::get<EJI_HDR>(kInfo)), std::get<EJI_OFFSET>(kInfo),
+				std::get<EJI_SIZE>(kInfo));
     }
 	
 	/*
