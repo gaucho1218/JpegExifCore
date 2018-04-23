@@ -111,10 +111,10 @@ int64_t CJpgPasrseSample::ParseJpg(TJpegInfo &kParseInfo)
         auto nTargetSize = get<EJI_SIZE>(kParseInfo) == 0 ? 2 : get<EJI_SIZE>(kParseInfo) + 2;
         
         //! exception cases
-        if( get<EJI_HDR>(kParseInfo) == EJPEG_SOS ||
-           (m_bAfterSOS == true && get<EJI_HDR>(kParseInfo) != EJPEG_EOI))
+		if (get<EJI_HDR>(kParseInfo) == EJPEG_SOS)
+			m_bAfterSOS = true;
+        else if(m_bAfterSOS == true && get<EJI_HDR>(kParseInfo) != EJPEG_EOI)
         {
-            m_bAfterSOS = true;
             nTargetSize = 2;
             kParseInfo = make_tuple(EJPEG_NONE, 0, 0);
         }

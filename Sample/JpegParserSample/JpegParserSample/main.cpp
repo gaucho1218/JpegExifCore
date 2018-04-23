@@ -36,6 +36,8 @@ int main(int argc, const char * argv[])
 		}
     }
 
+	printf("==================================================================\n");
+
 	for (TJpegInfo kJI : arrJpgInfo)
 	{
 		//! offset read and check validality
