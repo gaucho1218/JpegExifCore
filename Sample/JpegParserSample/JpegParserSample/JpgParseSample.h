@@ -37,6 +37,7 @@ protected:
 	const int	m_nBufSize;		//! default size is 4K
 	char		*m_pBuf;
     bool        m_bAfterSOS;
+	bool		m_bEOF;
 };
 
 #endif /* JpgParseSample_h */

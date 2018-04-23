@@ -14,13 +14,13 @@ using namespace std;
 
 CJpgPasrseSample::CJpgPasrseSample(void)
 	: m_pFile(nullptr), m_nOffset(0), m_nReadSize(0), m_nSkipSize(0), m_nBufSize(4 * 1024),
-    m_pBuf(nullptr), m_bAfterSOS(false)
+    m_pBuf(nullptr), m_bAfterSOS(false), m_bEOF(false)
 {
 }
 
 CJpgPasrseSample::CJpgPasrseSample(int nBufSize)
 	: m_pFile(nullptr), m_nOffset(0), m_nReadSize(0), m_nSkipSize(0), m_nBufSize(nBufSize),
-    m_pBuf(nullptr), m_bAfterSOS(false)
+    m_pBuf(nullptr), m_bAfterSOS(false), m_bEOF(false)
 {
 }
 
@@ -77,13 +77,17 @@ int64_t CJpgPasrseSample::ParseJpg(TJpegInfo &kParseInfo)
 	}
 
 	//! read and skip
+	if (m_bEOF == false)
 	{
 		auto nSize = fread(m_pBuf + m_nReadSize,
 			1, static_cast<size_t>(m_nBufSize - m_nReadSize),
 			m_pFile);
 
 		if (nSize <= 0)
+		{
 			JPDebugPrint("EOF or error: %lu\n", nSize);
+			m_bEOF = true;
+		}
 
 		m_nReadSize += nSize;
 
@@ -155,6 +159,7 @@ int64_t CJpgPasrseSample::ParseJpg(int nOffset, TJpegInfo &kParseInfo)
 	m_nSkipSize = 0;
     
     m_bAfterSOS = false;
+	m_bEOF = false;
 	
 	//! parse it
 	ParseJpg(kParseInfo);
