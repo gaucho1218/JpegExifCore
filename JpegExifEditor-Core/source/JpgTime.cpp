@@ -7,8 +7,11 @@
 //
 
 #include "JpgTime.h"
+#include <chrono>
+
+using namespace std::chrono;
 
 auto getJpgTimeMSecond(void)
 {
-
+	return duration_cast<milliseconds>(high_resolution_clock::now().time_since_epoch());
 }

@@ -11,6 +11,9 @@
 #include "JpgParseSample.h"
 #include "DebugPrint.h"
 
+#include <chrono>
+using namespace std::chrono;
+
 int main(int argc, const char * argv[])
 {
 	CJpgPasrseSample kParser;
