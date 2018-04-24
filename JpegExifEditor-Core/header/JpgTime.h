@@ -10,8 +10,9 @@
 #define JpgTime_h
 
 #include "JpgExDll.h"
+#include <stdint.h>
 
 //! returns current time in msec
-JPGEXFDLL auto getJpgTimeMSecond(void);
+JPGEXFDLL uint64_t getJpgTimeMSecond(void);
 
 #endif /* JpgTime_h */

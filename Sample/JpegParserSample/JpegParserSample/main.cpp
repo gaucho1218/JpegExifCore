@@ -10,6 +10,7 @@
 
 #include "JpgParseSample.h"
 #include "DebugPrint.h"
+#include "JpgTime.h"
 
 #include <chrono>
 using namespace std::chrono;
@@ -24,6 +25,8 @@ int main(int argc, const char * argv[])
 	std::vector<TJpegInfo> arrJpgInfo;
 	TJpegInfo kInfo;
     
+	auto nBefore = getJpgTimeMSecond();
+
     while( std::get<EJI_HDR>(kInfo) != EJPEG_EOI )
     {
         kParser.ParseJpg(kInfo);
@@ -39,6 +42,9 @@ int main(int argc, const char * argv[])
 		}
     }
 
+	auto nAfter = getJpgTimeMSecond();
+
+	printf("Process time: %llu\n", (nAfter - nBefore));
 	printf("==================================================================\n");
 
 	for (TJpegInfo kJI : arrJpgInfo)
