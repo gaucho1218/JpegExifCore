@@ -33,18 +33,20 @@ int main(int argc, const char * argv[])
         
 		if (std::get<EJI_HDR>(kInfo) != EJPEG_NONE)
 		{
-			printf("%s, offset:%d, size: %d\n",
+			auto nAfter = getJpgTimeMSecond();
+
+			printf("%s, offset:%d, size: %d, time: %llu\n",
 				GetJpegName(std::get<EJI_HDR>(kInfo)), std::get<EJI_OFFSET>(kInfo),
-				std::get<EJI_SIZE>(kInfo));
+				std::get<EJI_SIZE>(kInfo), (nAfter - nBefore));
 
 			//! store it
 			arrJpgInfo.push_back(kInfo);
+
+			//! time
+			nBefore = nAfter;
 		}
     }
 
-	auto nAfter = getJpgTimeMSecond();
-
-	printf("Process time: %llu\n", (nAfter - nBefore));
 	printf("==================================================================\n");
 
 	for (TJpegInfo kJI : arrJpgInfo)
