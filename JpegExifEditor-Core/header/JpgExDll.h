@@ -15,7 +15,7 @@
 #else
 #define JPGEXFDLL	__declspec(dllimport)
 #endif
-#else
+#else	//! other platform
 #define JPGEXFDLL
 #endif
 
