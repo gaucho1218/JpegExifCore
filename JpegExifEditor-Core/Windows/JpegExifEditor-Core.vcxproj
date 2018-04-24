@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClInclude Include="..\header\DebugPrint.h" />
     <ClInclude Include="..\header\JpegParser.h" />
+    <ClInclude Include="..\header\JpgExDll.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\JpegParser.cpp" />
