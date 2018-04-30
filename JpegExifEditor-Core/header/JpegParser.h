@@ -10,16 +10,7 @@
 #define JPEG_PARSER_H
 
 #include <tuple>
-
-#ifdef _WIN32
-#ifdef _WINDLL
-#define JPGEXFDLL	__declspec(dllexport)
-#else
-#define JPGEXFDLL	__declspec(dllimport)
-#endif
-#else
-#define JPGEXFDLL
-#endif
+#include "JpgExDll.h"
 
 enum EJpegHdrType
 {

@@ -17,9 +17,18 @@
     <ClInclude Include="..\header\DebugPrint.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="..\header\JpgExDll.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\JpgTime.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\JpegParser.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\JpgTime.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

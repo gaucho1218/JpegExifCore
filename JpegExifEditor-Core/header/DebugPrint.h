@@ -3,7 +3,7 @@
 //  JpegExifEditor-Core
 //
 //  Created by gaucho1218 on 2017. 12. 21..
-//  Copyright © 2017년 gaucho1218. All rights reserved.
+//  Copyright © 2017 gaucho1218. All rights reserved.
 //
 
 #ifndef DebugPrint_h

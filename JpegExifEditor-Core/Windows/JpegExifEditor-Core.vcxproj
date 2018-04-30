@@ -127,9 +127,12 @@
   <ItemGroup>
     <ClInclude Include="..\header\DebugPrint.h" />
     <ClInclude Include="..\header\JpegParser.h" />
+    <ClInclude Include="..\header\JpgExDll.h" />
+    <ClInclude Include="..\header\JpgTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\JpegParser.cpp" />
+    <ClCompile Include="..\source\JpgTime.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
