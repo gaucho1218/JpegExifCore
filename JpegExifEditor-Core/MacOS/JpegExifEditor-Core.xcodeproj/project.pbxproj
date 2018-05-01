@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B21281120916D3D0053ED8A /* JpgExDll.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B21280F20916D3D0053ED8A /* JpgExDll.h */; };
+		5B21281220916D3D0053ED8A /* JpgTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B21281020916D3D0053ED8A /* JpgTime.h */; };
+		5B212818209170640053ED8A /* JpgTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B212817209170630053ED8A /* JpgTime.cpp */; };
 		5B61B7821F5C185F00C7B65B /* JpegParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61B7811F5C185F00C7B65B /* JpegParser.h */; };
 		5B61B7841F5C186900C7B65B /* JpegParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B61B7831F5C186900C7B65B /* JpegParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B21280F20916D3D0053ED8A /* JpgExDll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JpgExDll.h; path = ../header/JpgExDll.h; sourceTree = "<group>"; };
+		5B21281020916D3D0053ED8A /* JpgTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JpgTime.h; path = ../header/JpgTime.h; sourceTree = "<group>"; };
+		5B212817209170630053ED8A /* JpgTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JpgTime.cpp; path = ../source/JpgTime.cpp; sourceTree = "<group>"; };
 		5B61B7811F5C185F00C7B65B /* JpegParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; name = JpegParser.h; path = ../header/JpegParser.h; sourceTree = "<group>"; };
 		5B61B7831F5C186900C7B65B /* JpegParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; name = JpegParser.cpp; path = ../source/JpegParser.cpp; sourceTree = "<group>"; };
 		5BAB49561F5AB96B00CC6AAB /* libJpegExifEditor-Core.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libJpegExifEditor-Core.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +38,8 @@
 		5B13FA521F5ABA0300D62492 /* header */ = {
 			isa = PBXGroup;
 			children = (
+				5B21280F20916D3D0053ED8A /* JpgExDll.h */,
+				5B21281020916D3D0053ED8A /* JpgTime.h */,
 				5B61B7811F5C185F00C7B65B /* JpegParser.h */,
 				5BC3C9F31FEBF8F3002C1708 /* DebugPrint.h */,
 			);
@@ -41,6 +49,7 @@
 		5B13FA531F5ABA1B00D62492 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				5B212817209170630053ED8A /* JpgTime.cpp */,
 				5B61B7831F5C186900C7B65B /* JpegParser.cpp */,
 			);
 			name = source;
@@ -70,6 +79,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B21281120916D3D0053ED8A /* JpgExDll.h in Headers */,
+				5B21281220916D3D0053ED8A /* JpgTime.h in Headers */,
 				5B61B7821F5C185F00C7B65B /* JpegParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B212818209170640053ED8A /* JpgTime.cpp in Sources */,
 				5B61B7841F5C186900C7B65B /* JpegParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +289,7 @@
 				5BAB49591F5AB96B00CC6AAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5BAB495A1F5AB96B00CC6AAB /* Build configuration list for PBXNativeTarget "JpegExifEditor-Core" */ = {
 			isa = XCConfigurationList;
@@ -286,7 +298,7 @@
 				5BAB495C1F5AB96B00CC6AAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
