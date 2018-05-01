@@ -12,6 +12,10 @@
 #include "JpgExDll.h"
 #include <stdint.h>
 
+#include <chrono>
+
+using namespace std::chrono;
+
 //! returns current time in msec
 JPGEXFDLL uint64_t getJpgTimeMSecond(void);
 

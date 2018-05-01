@@ -22,7 +22,7 @@ int main(int argc, const char * argv[])
 	std::vector<TJpegInfo> arrJpgInfo;
 	TJpegInfo kInfo;
     
-	//auto nBefore = getJpgTimeMSecond();
+	auto nBefore = getJpgTimeMSecond();
 
     while( std::get<EJI_HDR>(kInfo) != EJPEG_EOI )
     {
@@ -30,17 +30,17 @@ int main(int argc, const char * argv[])
         
 		if (std::get<EJI_HDR>(kInfo) != EJPEG_NONE)
 		{
-			//auto nAfter = getJpgTimeMSecond();
+			auto nAfter = getJpgTimeMSecond();
 
-			//printf("%s, offset:%d, size: %d, time: %llu\n",
-			//	GetJpegName(std::get<EJI_HDR>(kInfo)), std::get<EJI_OFFSET>(kInfo),
-			//	std::get<EJI_SIZE>(kInfo), (nAfter - nBefore));
+			printf("%s, offset:%d, size: %d, time: %llu\n",
+				GetJpegName(std::get<EJI_HDR>(kInfo)), std::get<EJI_OFFSET>(kInfo),
+				std::get<EJI_SIZE>(kInfo), (nAfter - nBefore));
 
 			//! store it
 			arrJpgInfo.push_back(kInfo);
 
 			//! time
-			//nBefore = nAfter;
+			nBefore = nAfter;
 		}
     }
 

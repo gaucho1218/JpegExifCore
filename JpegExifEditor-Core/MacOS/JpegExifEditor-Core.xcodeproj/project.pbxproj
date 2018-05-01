@@ -10,6 +10,7 @@
 		5B21281120916D3D0053ED8A /* JpgExDll.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B21280F20916D3D0053ED8A /* JpgExDll.h */; };
 		5B21281220916D3D0053ED8A /* JpgTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B21281020916D3D0053ED8A /* JpgTime.h */; };
 		5B212818209170640053ED8A /* JpgTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B212817209170630053ED8A /* JpgTime.cpp */; };
+		5B24E7292098B29D00B8201F /* DebugPrint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC3C9F31FEBF8F3002C1708 /* DebugPrint.h */; };
 		5B61B7821F5C185F00C7B65B /* JpegParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B61B7811F5C185F00C7B65B /* JpegParser.h */; };
 		5B61B7841F5C186900C7B65B /* JpegParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B61B7831F5C186900C7B65B /* JpegParser.cpp */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B24E7292098B29D00B8201F /* DebugPrint.h in Headers */,
 				5B21281120916D3D0053ED8A /* JpgExDll.h in Headers */,
 				5B21281220916D3D0053ED8A /* JpgTime.h in Headers */,
 				5B61B7821F5C185F00C7B65B /* JpegParser.h in Headers */,
@@ -156,7 +158,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -212,7 +214,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;

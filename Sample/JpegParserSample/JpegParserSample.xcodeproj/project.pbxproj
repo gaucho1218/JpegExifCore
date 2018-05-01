@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B21281620916F060053ED8A /* libJpegExifEditor-Core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B21281520916F060053ED8A /* libJpegExifEditor-Core.dylib */; };
+		5B24E72B2098BFB100B8201F /* libJpegExifEditor-Core.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B21281520916F060053ED8A /* libJpegExifEditor-Core.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5B46DEC31F77753300B97C80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B46DEC21F77753300B97C80 /* main.cpp */; };
 		5B46DEC61F7777FD00B97C80 /* JpgParseSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B46DEC51F7777FD00B97C80 /* JpgParseSample.cpp */; };
 /* End PBXBuildFile section */
@@ -17,8 +18,9 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
-			dstSubfolderSpec = 16;
+			dstSubfolderSpec = 6;
 			files = (
+				5B24E72B2098BFB100B8201F /* libJpegExifEditor-Core.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +254,8 @@
 		5BBC81201F6E5084008B1827 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				HEADER_SEARCH_PATHS = (
 					"../../JpegExifEditor-Core/header",
@@ -268,6 +272,8 @@
 		5BBC81211F6E5084008B1827 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				HEADER_SEARCH_PATHS = (
 					"../../JpegExifEditor-Core/header",
