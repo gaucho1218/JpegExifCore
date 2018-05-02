@@ -16,7 +16,11 @@
 #define JPGEXFDLL	__declspec(dllimport)
 #endif
 #else	//! other platform
+#ifdef HAVE_GCCVISIBILITYPATCH
+#define JPGEXFDLL __attribute__((visibility("default")))
+#else
 #define JPGEXFDLL
+#endif
 #endif
 
 #endif /* JpgExDll_h */
